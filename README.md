@@ -1,8 +1,5 @@
 # Machine-Learning-Application-Firewall
 ---
-
-### The README.md Template
-
 # 🛡️ MLAF: Machine Learning Application Firewall
 
 **An inline, active-defense proxy neutralizing adversarial ML payloads before they reach production inference APIs.**
