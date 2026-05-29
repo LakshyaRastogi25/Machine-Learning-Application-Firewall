@@ -4,6 +4,7 @@ import uvicorn
 import logging
 import json
 import numpy as np
+import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("MLAF_Proxy")
@@ -14,7 +15,8 @@ app = FastAPI(
     version="2.0.0"
 )
 
-TARGET_API_URL = "http://localhost:8001"
+# Pull the URL from the environment, defaulting to localhost for local dev
+TARGET_API_URL = os.getenv("TARGET_API_URL", "http://localhost:8001")
 
 class MLFirewall:
     @staticmethod
