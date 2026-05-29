@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  # 1. The Vulnerable Target (Hidden)
+  ml-target:
+    build:
+      context: .
+      dockerfile: Dockerfile.target
+    container_name: mlaf_vulnerable_target
+    expose:
+      - "8001" 
+    # Notice there is no "ports" mapping to the host machine. 
+    # It is completely inaccessible from the outside internet.
+
+  # 2. The Inline ML Firewall (Public)
+  mlaf-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile.proxy
+    container_name: mlaf_inline_firewall
+    ports:
+      - "8000:8000" # Expose Port 8000 to the outside world
+    environment:
+      # Tell the proxy to look for the container named "ml-target"
+      - TARGET_API_URL=http://ml-target:8001
+    depends_on:
+      - ml-target
