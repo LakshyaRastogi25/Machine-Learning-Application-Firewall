@@ -9,11 +9,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the target API code and the trained model folder
-COPY Target_api.py .
+COPY target_api.py .
 COPY models/ models/
 
 # Expose the internal port
 EXPOSE 8001
 
 # Run the vulnerable target server
-CMD ["uvicorn", "Target_api:app", "--host", "0.0.0.0", "--port", "8001"]
+CMD ["uvicorn", "target_api:app", "--host", "0.0.0.0", "--port", "8001"]
