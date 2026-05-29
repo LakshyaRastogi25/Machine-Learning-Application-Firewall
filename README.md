@@ -1,5 +1,4 @@
 # Machine-Learning-Application-Firewall
----
 # 🛡️ MLAF: Machine Learning Application Firewall
 
 **An inline, active-defense proxy neutralizing adversarial ML payloads before they reach production inference APIs.**
@@ -34,10 +33,10 @@ This defense was built with an offensive security mindset. The repository includ
 
 **To demonstrate the vulnerability and the fix:**
 
-1. **Deploy the Environment:** ```bash
-docker-compose up --build
-```
+1. **Deploy the Environment:** 
 
+```
+docker-compose up --build
 ```
 
 
